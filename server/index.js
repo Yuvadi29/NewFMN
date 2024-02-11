@@ -30,6 +30,7 @@ app.get("/", (req, res) => {
 
 app.use("/auth", authRoutes);
 app.use("/notes", noteRoutes);
+app.use("/files", express.static("files"));
 
 app.listen(PORT, () => {
     console.log(`Server Running on Port ${PORT}`);

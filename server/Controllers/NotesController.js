@@ -11,7 +11,7 @@ var upload = multer({ storage: storage });
 
 const uploadNote = async (req, res) => {
     try {
-        const fileName = req.body.file;
+        const fileName = req.body.title;
         const fileDescription = req.body.description;
         const tags = req.body.tags;
         const file = req.file.filename;
