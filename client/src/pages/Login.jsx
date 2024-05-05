@@ -22,11 +22,18 @@ const Login = () => {
       };
 
       const result = await axios.post("http://localhost:6969/auth/login", user);
+      if(result.data.status==="Error")
+      {
+        alert("Invalid credentials");
+        navigate("/login");
+      }
+      else{
       console.log("User Logged in Successfully: ", result);
-
       dispatch(setUserData(result.data));
-
       navigate("/");
+      }
+
+
 
     } catch (error) {
       console.log("Cannot Login the User: ", error);
