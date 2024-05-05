@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { setUserData } from "../Redux/slices/user-slice";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
 
@@ -24,7 +26,7 @@ const Login = () => {
       const result = await axios.post("http://localhost:6969/auth/login", user);
       if(result.data.status==="Error")
       {
-        alert("Invalid credentials");
+        toast.error("wrong credentials ");
         navigate("/login");
       }
       else{
